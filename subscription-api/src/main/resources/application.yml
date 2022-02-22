@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+subscription:
+  email:
+    template: Subscription for newsletter [%s] was created for email [%s]
