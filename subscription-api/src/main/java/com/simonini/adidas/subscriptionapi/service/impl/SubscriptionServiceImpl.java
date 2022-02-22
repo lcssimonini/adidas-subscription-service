@@ -30,23 +30,17 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Override
     public Subscription create(Subscription subscription) {
-        log.info("Subscription to save: {}", asJson(subscription));
+        log.info("Subscription to be created: {}", asJson(subscription));
         subscription.setCreatedAt(LocalDateTime.now());
         Subscription savedSubscription =  repository.save(subscription);
         sendEmailService.sendEmail(getEmailRequest(subscription));
         return savedSubscription;
     }
 
-    private SendEmailRequest getEmailRequest(Subscription subscription) {
-        return SendEmailRequest.builder()
-                .entityId(subscription.getId())
-                .email(subscription.getEmail())
-                .message(getEmailMessage(subscription))
-                .build();
-    }
-
-    private String getEmailMessage(Subscription subscription) {
-        return String.format(emailTemplate, subscription.getNewsletterId(), subscription.getEmail());
+    @Override
+    public Subscription save(Subscription subscription) {
+        log.info("Subscription to save: {}", asJson(subscription));
+        return repository.save(subscription);
     }
 
     @Override
@@ -68,5 +62,17 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     public Page<Subscription> findAll(Pageable pageable) {
         log.info("Attempt to find all subscriptions from page: {}", asJson(pageable));
         return repository.findAll(pageable);
+    }
+
+    private SendEmailRequest getEmailRequest(Subscription subscription) {
+        return SendEmailRequest.builder()
+                .entityId(subscription.getId())
+                .email(subscription.getEmail())
+                .message(getEmailMessage(subscription))
+                .build();
+    }
+
+    private String getEmailMessage(Subscription subscription) {
+        return String.format(emailTemplate, subscription.getNewsletterId(), subscription.getEmail());
     }
 }

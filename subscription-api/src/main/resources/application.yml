@@ -7,4 +7,4 @@ subscription:
 
 email:
   send-queue: send-email-queue
-  dlq: send-email-dlq
+  feedback-queue: feedback-email-queue

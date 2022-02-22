@@ -6,7 +6,6 @@ import com.simonini.adidas.emailservice.receiver.dto.SendEmailDLQResponse;
 import com.simonini.adidas.emailservice.receiver.dto.SendEmailRequest;
 import com.simonini.adidas.emailservice.sender.EmailFeedbackSender;
 import com.simonini.adidas.emailservice.validator.SendRequestValidator;
-import jdk.dynalink.linker.LinkerServices;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -21,7 +20,7 @@ import static com.simonini.adidas.emailservice.util.LogUtil.asJson;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class EmailMessageReceiver {
+public class EmailMessageListener {
 
     private final SendRequestValidator validator;
     private final EmailFeedbackSender feedbackSender;

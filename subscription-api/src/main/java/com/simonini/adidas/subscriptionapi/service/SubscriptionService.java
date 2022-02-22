@@ -8,6 +8,8 @@ public interface SubscriptionService {
 
     Subscription create(Subscription subscription);
 
+    Subscription save(Subscription subscription);
+
     void cancel(String id);
 
     Subscription findById(String id);
