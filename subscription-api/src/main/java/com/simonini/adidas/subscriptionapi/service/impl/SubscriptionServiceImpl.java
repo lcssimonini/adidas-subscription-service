@@ -13,6 +13,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 import static com.simonini.adidas.subscriptionapi.util.LogUtil.asJson;
 
 @Slf4j
@@ -29,6 +31,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public Subscription create(Subscription subscription) {
         log.info("Subscription to save: {}", asJson(subscription));
+        subscription.setCreatedAt(LocalDateTime.now());
         Subscription savedSubscription =  repository.save(subscription);
         sendEmailService.sendEmail(getEmailRequest(subscription));
         return savedSubscription;

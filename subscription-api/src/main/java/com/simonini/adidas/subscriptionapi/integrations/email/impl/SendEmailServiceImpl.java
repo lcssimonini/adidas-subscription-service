@@ -1,5 +1,6 @@
 package com.simonini.adidas.subscriptionapi.integrations.email.impl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.simonini.adidas.subscriptionapi.integrations.email.SendEmailService;
 import com.simonini.adidas.subscriptionapi.integrations.email.dto.SendEmailRequest;
 import com.simonini.adidas.subscriptionapi.integrations.email.dto.SendEmailResponse;
@@ -18,8 +19,9 @@ import static com.simonini.adidas.subscriptionapi.util.LogUtil.asJson;
 @RequiredArgsConstructor
 public class SendEmailServiceImpl implements SendEmailService {
 
+    private final ObjectMapper objectMapper;
     private final RabbitTemplate queueSender;
-    @Value("${email.queue}")
+    @Value("${email.send-queue}")
     private String sendEmailQueueName;
 
     @Override
@@ -27,7 +29,7 @@ public class SendEmailServiceImpl implements SendEmailService {
         log.info("Attempt to send email: {}", asJson(sendEmailRequest));
         SendEmailResponse response;
         try {
-            queueSender.convertAndSend(sendEmailQueueName, sendEmailRequest);
+            queueSender.convertAndSend(sendEmailQueueName, objectMapper.writeValueAsString(sendEmailRequest));
             response = SendEmailResponse.builder()
                     .entityId(sendEmailRequest.getEntityId())
                     .sentAt(LocalDateTime.now())

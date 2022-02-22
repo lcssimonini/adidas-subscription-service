@@ -1,5 +1,6 @@
 package com.simonini.adidas.emailservice.sender;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.simonini.adidas.emailservice.receiver.dto.SendEmailRequest;
 import com.simonini.adidas.emailservice.receiver.dto.SendEmailResponse;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,7 @@ public class EmailFeedbackSender {
     private String sendEmailFeedbackQueueName;
 
     private final RabbitTemplate queueSender;
+    private final ObjectMapper objectMapper;
 
     public void sendEmailFeedback(SendEmailRequest sendEmailRequest) {
         log.info("Attempt to send email feedback: {}", asJson(sendEmailRequest));
@@ -29,7 +31,7 @@ public class EmailFeedbackSender {
                     .entityId(sendEmailRequest.getEntityId())
                     .sentAt(LocalDateTime.now())
                     .build();
-            queueSender.convertAndSend(sendEmailFeedbackQueueName, response);
+            queueSender.convertAndSend(sendEmailFeedbackQueueName, objectMapper.writeValueAsString(response));
         } catch (Exception e) {
             log.error("Error trying to send email feedback to queue", e);
         }
