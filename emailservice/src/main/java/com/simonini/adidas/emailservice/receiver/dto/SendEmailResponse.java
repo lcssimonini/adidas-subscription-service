@@ -1,4 +1,4 @@
-package com.simonini.adidas.subscriptionapi.integrations.email.dto;
+package com.simonini.adidas.emailservice.receiver.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +15,5 @@ import java.time.LocalDateTime;
 public class SendEmailResponse implements Serializable {
 
     private String entityId;
-    private boolean isAttemptFailure;
     private LocalDateTime sentAt;
 }

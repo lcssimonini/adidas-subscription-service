@@ -6,11 +6,11 @@ import com.simonini.adidas.subscriptionapi.integrations.email.dto.SendEmailRespo
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-import static com.simonini.adidas.subscriptionapi.integrations.email.config.SendEmailQueueConfig.SEND_EMAIL_QUEUE_NAME;
 import static com.simonini.adidas.subscriptionapi.util.LogUtil.asJson;
 
 @Slf4j
@@ -19,13 +19,15 @@ import static com.simonini.adidas.subscriptionapi.util.LogUtil.asJson;
 public class SendEmailServiceImpl implements SendEmailService {
 
     private final RabbitTemplate queueSender;
+    @Value("${email.queue}")
+    private String sendEmailQueueName;
 
     @Override
     public SendEmailResponse sendEmail(SendEmailRequest sendEmailRequest) {
         log.info("Attempt to send email: {}", asJson(sendEmailRequest));
         SendEmailResponse response;
         try {
-            queueSender.convertAndSend(SEND_EMAIL_QUEUE_NAME, sendEmailRequest);
+            queueSender.convertAndSend(sendEmailQueueName, sendEmailRequest);
             response = SendEmailResponse.builder()
                     .entityId(sendEmailRequest.getEntityId())
                     .sentAt(LocalDateTime.now())

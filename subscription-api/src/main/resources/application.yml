@@ -4,3 +4,7 @@ server:
 subscription:
   email:
     template: Subscription for newsletter [%s] was created for email [%s]
+
+email:
+  queue: send-email-queue
+  dlq: send-email-dlq
