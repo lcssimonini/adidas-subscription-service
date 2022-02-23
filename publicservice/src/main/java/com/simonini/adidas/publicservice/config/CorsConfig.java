@@ -1,4 +1,4 @@
-package com.simonini.adidas.subscriptionapi.configuration;
+package com.simonini.adidas.publicservice.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
