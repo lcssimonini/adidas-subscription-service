@@ -23,7 +23,7 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @Slf4j
 @RestController
-@RequestMapping("/subscription")
+@RequestMapping("/subscriptions")
 @RequiredArgsConstructor
 public class SubscriptionResource {
 

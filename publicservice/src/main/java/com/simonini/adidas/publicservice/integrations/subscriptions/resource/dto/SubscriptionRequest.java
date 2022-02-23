@@ -1,7 +1,8 @@
 package com.simonini.adidas.publicservice.integrations.subscriptions.resource.dto;
 
 import com.simonini.adidas.publicservice.domain.Gender;
-import com.simonini.adidas.publicservice.validator.BirthDateValue;
+import com.simonini.adidas.publicservice.validator.birthdate.BirthDateValue;
+import com.simonini.adidas.publicservice.validator.gender.GenderValue;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +19,7 @@ import javax.validation.constraints.NotNull;
 public class SubscriptionRequest {
 
     private String firstName;
+    @GenderValue(message = "Invalid gender value")
     private Gender gender;
     @Email(message = "Wrong email format")
     @NotBlank(message = "Email cannot be empty")

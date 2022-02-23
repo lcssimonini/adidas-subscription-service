@@ -1,4 +1,4 @@
-package com.simonini.adidas.publicservice.validator;
+package com.simonini.adidas.publicservice.validator.birthdate;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
