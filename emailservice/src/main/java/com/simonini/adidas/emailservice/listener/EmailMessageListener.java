@@ -1,9 +1,9 @@
-package com.simonini.adidas.emailservice.receiver;
+package com.simonini.adidas.emailservice.listener;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.simonini.adidas.emailservice.receiver.dto.SendEmailDLQResponse;
-import com.simonini.adidas.emailservice.receiver.dto.SendEmailRequest;
+import com.simonini.adidas.emailservice.listener.dto.SendEmailDLQResponse;
+import com.simonini.adidas.emailservice.listener.dto.SendEmailRequest;
 import com.simonini.adidas.emailservice.sender.EmailFeedbackSender;
 import com.simonini.adidas.emailservice.validator.SendRequestValidator;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.simonini.adidas.emailservice.receiver.dto;
+package com.simonini.adidas.emailservice.listener.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
