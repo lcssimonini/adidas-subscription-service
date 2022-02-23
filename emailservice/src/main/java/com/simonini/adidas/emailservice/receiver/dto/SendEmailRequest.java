@@ -21,7 +21,4 @@ public class SendEmailRequest implements Serializable {
     private String email;
     @NotBlank(message = "Message cannot be empty")
     private String message;
-
-    @NotBlank(message = "batata cannot be empty")
-    private String batata;
 }

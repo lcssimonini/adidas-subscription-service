@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.13.1'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.1'
 	implementation 'org.springframework.boot:spring-boot-starter-amqp'

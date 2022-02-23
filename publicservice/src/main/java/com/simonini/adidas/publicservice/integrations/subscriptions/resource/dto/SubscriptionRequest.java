@@ -20,7 +20,7 @@ public class SubscriptionRequest {
 
     private String firstName;
     @GenderValue(message = "Invalid gender value")
-    private Gender gender;
+    private String gender;
     @Email(message = "Wrong email format")
     @NotBlank(message = "Email cannot be empty")
     private String email;

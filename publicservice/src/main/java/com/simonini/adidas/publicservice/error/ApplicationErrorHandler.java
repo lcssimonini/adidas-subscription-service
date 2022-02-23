@@ -26,12 +26,12 @@ public class ApplicationErrorHandler {
     public static final String EXCEPTION_LOG_MESSAGE = "An exception has occurred";
     public static final String FIELD_ERROR_MESSAGE_TEMPLATE = "error on field [%s]: [%s]";
 
-    @ExceptionHandler(InvalidFormatException.class)
-    public ResponseEntity<ErrorResponse> handleInvalidFormatException(final InvalidFormatException exception) {
-        ResponseEntity<ErrorResponse> error = badRequest().body(getErrorResponse(exception));
-        log.error(EXCEPTION_LOG_MESSAGE, exception);
-        return error;
-    }
+//    @ExceptionHandler(InvalidFormatException.class)
+//    public ResponseEntity<ErrorResponse> handleInvalidFormatException(final InvalidFormatException exception) {
+//        ResponseEntity<ErrorResponse> error = badRequest().body(getErrorResponse(exception));
+//        log.error(EXCEPTION_LOG_MESSAGE, exception);
+//        return error;
+//    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationException(final MethodArgumentNotValidException exception) {
