@@ -4,3 +4,13 @@ server:
 spring:
   profiles:
     active: local
+
+integrations:
+  subscriptions-api:
+    url: http://localhost:8081
+
+feign:
+  client:
+    config:
+      default:
+        loggerLevel: full
