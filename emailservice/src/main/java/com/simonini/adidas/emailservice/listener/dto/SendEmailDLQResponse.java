@@ -1,12 +1,11 @@
 package com.simonini.adidas.emailservice.listener.dto;
 
+import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-import java.util.List;
 
 @Data
 @Builder
@@ -14,6 +13,6 @@ import java.util.List;
 @AllArgsConstructor
 public class SendEmailDLQResponse implements Serializable {
 
-    private String entityId;
-    private List<String> errorMessages;
+  private String entityId;
+  private List<String> errorMessages;
 }

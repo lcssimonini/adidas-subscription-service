@@ -1,2 +1,9 @@
-package com.simonini.adidas.emailservice.validator;public interface RequestValidator {
+package com.simonini.adidas.emailservice.validator;
+
+import com.simonini.adidas.emailservice.listener.dto.SendEmailRequest;
+import java.util.List;
+
+public interface RequestValidator {
+
+  List<String> validateRequest(SendEmailRequest request);
 }
