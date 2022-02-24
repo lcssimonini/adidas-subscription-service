@@ -1,5 +1,6 @@
 package com.simonini.adidas.subscriptionapi.configuration;
 
+import java.util.Collections;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
@@ -10,31 +11,29 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.Collections;
-
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
 
-    @Bean
-    public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.simonini.adidas.subscriptionapi"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(apiInfo());
-    }
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+        .select()
+        .apis(RequestHandlerSelectors.basePackage("com.simonini.adidas.subscriptionapi"))
+        .paths(PathSelectors.any())
+        .build()
+        .apiInfo(apiInfo());
+  }
 
-    private ApiInfo apiInfo() {
-        return new ApiInfo(
-                "Awesome Subscription application",
-                "Used to create subscriptions for users",
-                "1",
-                "Terms of service Url",
-                new Contact("lucas simonini", "", "lucas.cs.simonini@gmail.com"),
-                "License",
-                "License URL",
-                Collections.emptyList());
-    }
+  private ApiInfo apiInfo() {
+    return new ApiInfo(
+        "Awesome Subscription application",
+        "Used to create subscriptions for users",
+        "1",
+        "Terms of service Url",
+        new Contact("lucas simonini", "", "lucas.cs.simonini@gmail.com"),
+        "License",
+        "License URL",
+        Collections.emptyList());
+  }
 }

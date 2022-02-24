@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SendEmailQueueConfig {
 
-    @Value("${email.send-queue}")
-    private String sendEmailQueue;
+  @Value("${email.send-queue}")
+  private String sendEmailQueue;
 
-    @Bean
-    public Queue sendEmailQueue() {
-        return new Queue(sendEmailQueue, false);
-    }
+  @Bean
+  public Queue sendEmailQueue() {
+    return new Queue(sendEmailQueue, false);
+  }
 }

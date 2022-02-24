@@ -15,19 +15,19 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class EmailFeedbackListener {
 
-    private final ObjectMapper objectMapper;
-    private final SubscriptionService subscriptionService;
+  private final ObjectMapper objectMapper;
+  private final SubscriptionService subscriptionService;
 
-    @RabbitListener(queues = "${email.feedback-queue}")
-    public void emailFeedbackListener(String feedbackMessage) throws JsonProcessingException {
-        log.info("received email feedback message");
-        SendEmailResponse response = objectMapper.readValue(feedbackMessage, SendEmailResponse.class);
-        handleEmailFeedback(response);
-    }
+  @RabbitListener(queues = "${email.feedback-queue}")
+  public void emailFeedbackListener(String feedbackMessage) throws JsonProcessingException {
+    log.info("received email feedback message");
+    SendEmailResponse response = objectMapper.readValue(feedbackMessage, SendEmailResponse.class);
+    handleEmailFeedback(response);
+  }
 
-    private void handleEmailFeedback(SendEmailResponse response) {
-        Subscription subscription = subscriptionService.findById(response.getEntityId());
-        subscription.setEmailSent(true);
-        subscriptionService.save(subscription);
-    }
+  private void handleEmailFeedback(SendEmailResponse response) {
+    Subscription subscription = subscriptionService.findById(response.getEntityId());
+    subscription.setEmailSent(true);
+    subscriptionService.save(subscription);
+  }
 }

@@ -8,10 +8,12 @@ import lombok.experimental.UtilityClass;
 public class LogUtil {
 
     public static String asJson(Object object) {
-        String loggableObject = object.toString();
+        String loggableObject;
         try {
-            loggableObject = new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
+            loggableObject =
+                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
         } catch (JsonProcessingException ignored) {
+            loggableObject = object.toString();
         }
         return loggableObject;
     }

@@ -6,13 +6,13 @@ import org.springframework.data.domain.Pageable;
 
 public interface SubscriptionService {
 
-    Subscription create(Subscription subscription);
+  Subscription create(Subscription subscription);
 
-    Subscription save(Subscription subscription);
+  Subscription save(Subscription subscription);
 
-    void cancel(String id);
+  void cancel(String id);
 
-    Subscription findById(String id);
+  Subscription findById(String id);
 
-    Page<Subscription> findAll(Pageable pageable);
+  Page<Subscription> findAll(Pageable pageable);
 }

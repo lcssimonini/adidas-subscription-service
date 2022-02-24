@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SubscriptionResponse {
 
-    private String id;
-    private String email;
-    private String firstName;
-    private String gender;
-    private String dateOfBirth;
-    private Boolean consent;
-    private Boolean emailSent;
-    private Boolean canceled;
-    private String newsletterId;
+  private String id;
+  private String email;
+  private String firstName;
+  private String gender;
+  private String dateOfBirth;
+  private Boolean consent;
+  private Boolean emailSent;
+  private Boolean canceled;
+  private String newsletterId;
 }

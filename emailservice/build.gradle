@@ -84,6 +84,8 @@ sonarqube {
 		property "sonar.exclusions", [
 				"**/com/simonini/adidas/emailservice/configuration/**",
 				"**/com/simonini/adidas/emailservice/validator/**",
+				"**/com/simonini/adidas/emailservice/listener/dto/**",
+				"**/com/simonini/adidas/emailservice/util/**",
 				"**/com/simonini/adidas/emailservice/EmailserviceApplication.java"
 		]
 	}

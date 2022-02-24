@@ -5,5 +5,5 @@ import com.simonini.adidas.subscriptionapi.integrations.email.dto.SendEmailRespo
 
 public interface SendEmailService {
 
-    SendEmailResponse sendEmail(SendEmailRequest sendEmailRequest);
+  SendEmailResponse sendEmail(SendEmailRequest sendEmailRequest);
 }
