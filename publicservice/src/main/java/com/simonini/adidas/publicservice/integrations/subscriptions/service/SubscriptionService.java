@@ -7,11 +7,11 @@ import org.springframework.data.domain.Pageable;
 
 public interface SubscriptionService {
 
-    SubscriptionResponse create(SubscriptionRequest subscription);
+  SubscriptionResponse create(SubscriptionRequest subscription);
 
-    void cancel(String id);
+  void cancel(String id);
 
-    SubscriptionResponse findById(String id);
+  SubscriptionResponse findById(String id);
 
-    Page<SubscriptionResponse> findAll(Pageable pageable);
+  Page<SubscriptionResponse> findAll(Pageable pageable);
 }

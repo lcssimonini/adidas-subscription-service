@@ -15,25 +15,25 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class SubscriptionServiceImpl implements SubscriptionService {
 
-    private final SubscriptionsClient subscriptionsClient;
+  private final SubscriptionsClient subscriptionsClient;
 
-    @Override
-    public SubscriptionResponse create(SubscriptionRequest request) {
-        return subscriptionsClient.create(request);
-    }
+  @Override
+  public SubscriptionResponse create(SubscriptionRequest request) {
+    return subscriptionsClient.create(request);
+  }
 
-    @Override
-    public void cancel(String id) {
-        subscriptionsClient.cancel(id);
-    }
+  @Override
+  public void cancel(String id) {
+    subscriptionsClient.cancel(id);
+  }
 
-    @Override
-    public SubscriptionResponse findById(String id) {
-        return subscriptionsClient.findById(id);
-    }
+  @Override
+  public SubscriptionResponse findById(String id) {
+    return subscriptionsClient.findById(id);
+  }
 
-    @Override
-    public Page<SubscriptionResponse> findAll(Pageable pageable) {
-        return subscriptionsClient.findAll(pageable);
-    }
+  @Override
+  public Page<SubscriptionResponse> findAll(Pageable pageable) {
+    return subscriptionsClient.findAll(pageable);
+  }
 }

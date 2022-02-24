@@ -20,7 +20,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.test.util.ReflectionTestUtils;
 
 @ExtendWith(MockitoExtension.class)
-public class EmailDLQSenderTest {
+class EmailDLQSenderTest {
 
   @Mock private RabbitTemplate queueSender;
   @Mock private SerializeHelper serializeHelper;

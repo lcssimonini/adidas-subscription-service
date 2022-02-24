@@ -7,14 +7,14 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class LogUtil {
 
-    public static String asJson(Object object) {
-        String loggableObject;
-        try {
-            loggableObject =
-                    new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
-        } catch (JsonProcessingException ignored) {
-            loggableObject = object.toString();
-        }
-        return loggableObject;
+  public static String asJson(Object object) {
+    String loggableObject;
+    try {
+      loggableObject =
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
+    } catch (JsonProcessingException ignored) {
+      loggableObject = object.toString();
     }
+    return loggableObject;
+  }
 }
