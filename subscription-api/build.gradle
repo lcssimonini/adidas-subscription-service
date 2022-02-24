@@ -84,8 +84,19 @@ docker {
 
 sonarqube {
 	properties {
-		property "sonar.projectKey", "${project.name}"
+		property "sonar.projectKey", "lcssimonini_${project.name}"
 		property "sonar.organization", "lcssimonini"
 		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.exclusions", [
+				"**/com/simonini/adidas/subscriptionapi/configuration/**",
+				"**/com/simonini/adidas/subscriptionapi/domain/**",
+				"**/com/simonini/adidas/subscriptionapi/error/**",
+				"**/com/simonini/adidas/subscriptionapi/validator/**",
+				"**/com/simonini/adidas/subscriptionapi/repository/**",
+				"**/com/simonini/adidas/subscriptionapi/util/**",
+				"**/com/simonini/adidas/subscriptionapi/resource/dto/**",
+				"**/com/simonini/adidas/subscriptionapi/integrations/email/config/**",
+				"**/com/simonini/adidas/subscriptionapi/SubscriptionApiApplication.java"
+		]
 	}
 }

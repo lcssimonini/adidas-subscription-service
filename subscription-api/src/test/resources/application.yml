@@ -1,3 +1,11 @@
 spring:
   profiles:
     active: test
+
+subscription:
+  email:
+    template: Subscription for newsletter [%s] was created for email [%s]
+
+email:
+  send-queue: send-email-queue
+  feedback-queue: feedback-email-queue

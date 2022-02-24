@@ -27,7 +27,7 @@ public class SubscriptionRequest {
   private String dateOfBirth;
 
   @NotNull(message = "Consent to subscription cannot be empty")
-  private Boolean consentSubscribe;
+  private boolean consentSubscribe;
 
   @NotBlank(message = "NewsletterId cannot be empty")
   private String newsletterId;

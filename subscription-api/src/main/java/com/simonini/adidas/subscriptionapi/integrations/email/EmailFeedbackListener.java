@@ -19,8 +19,8 @@ public class EmailFeedbackListener {
   private final SubscriptionService subscriptionService;
 
   @RabbitListener(queues = "${email.feedback-queue}")
-  public void emailFeedbackListener(String feedbackMessage) throws JsonProcessingException {
-    log.info("received email feedback message");
+  public void listenEmailFeedback(String feedbackMessage) throws JsonProcessingException {
+    log.info("received email feedback message: {}", feedbackMessage);
     SendEmailResponse response = objectMapper.readValue(feedbackMessage, SendEmailResponse.class);
     handleEmailFeedback(response);
   }

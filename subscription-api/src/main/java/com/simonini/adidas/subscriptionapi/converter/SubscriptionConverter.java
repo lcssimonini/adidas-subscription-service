@@ -12,7 +12,7 @@ public class SubscriptionConverter {
     return Subscription.builder()
         .email(request.getEmail())
         .firstName(request.getFirstName())
-        .consent(request.getConsentSubscribe())
+        .consentSubscribe(request.isConsentSubscribe())
         .dateOfBirth(request.getDateOfBirth())
         .gender(request.getGender().name())
         .newsletterId(request.getNewsletterId())
@@ -22,9 +22,13 @@ public class SubscriptionConverter {
   public static SubscriptionResponse fromDomain(Subscription subscription) {
     return SubscriptionResponse.builder()
         .id(subscription.getId())
+        .gender(subscription.getGender())
+        .dateOfBirth(subscription.getDateOfBirth())
         .firstName(subscription.getFirstName())
         .email(subscription.getEmail())
         .emailSent(subscription.isEmailSent())
+        .consentSubscribe(subscription.isConsentSubscribe())
+        .newsletterId(subscription.getNewsletterId())
         .canceled(subscription.isCanceled())
         .build();
   }

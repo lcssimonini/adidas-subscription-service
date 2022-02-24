@@ -18,8 +18,8 @@ public class SubscriptionResponse {
   private String firstName;
   private String gender;
   private String dateOfBirth;
-  private Boolean consent;
-  private Boolean emailSent;
-  private Boolean canceled;
+  private boolean consentSubscribe;
+  private boolean emailSent;
+  private boolean canceled;
   private String newsletterId;
 }

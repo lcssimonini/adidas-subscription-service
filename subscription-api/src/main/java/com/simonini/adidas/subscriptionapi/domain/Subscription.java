@@ -15,7 +15,7 @@ public class Subscription {
   private String firstName;
   private String gender;
   private String dateOfBirth;
-  private boolean consent;
+  private boolean consentSubscribe;
   private boolean canceled;
   private String newsletterId;
   private boolean emailSent;

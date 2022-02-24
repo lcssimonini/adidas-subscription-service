@@ -11,7 +11,7 @@ public class LogUtil {
     String loggableObject;
     try {
       loggableObject =
-              new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
+          new ObjectMapper().writerWithDefaultPrettyPrinter().writeValueAsString(object);
     } catch (JsonProcessingException ignored) {
       loggableObject = object.toString();
     }
