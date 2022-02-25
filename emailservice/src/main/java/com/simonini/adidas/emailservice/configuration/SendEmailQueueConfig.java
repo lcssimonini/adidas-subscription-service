@@ -8,6 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SendEmailQueueConfig {
 
+  @Value("${email.send-queue}")
+  private String sendEmailQueue;
+
   @Value("${email.feedback-queue}")
   private String sendEmailFeedbackQueueName;
 
@@ -23,4 +26,10 @@ public class SendEmailQueueConfig {
   public Queue sendEmailDLQ() {
     return new Queue(sendEmailDLQName, false);
   }
+
+  @Bean
+  public Queue sendEmailQueue() {
+    return new Queue(sendEmailQueue, false);
+  }
 }
+

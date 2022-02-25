@@ -47,7 +47,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     log.info("Attempt to cancel subscription with id: {}", id);
     Subscription subscription = findById(id);
     subscription.cancel();
-    repository.save(subscription);
+    save(subscription);
   }
 
   @Override

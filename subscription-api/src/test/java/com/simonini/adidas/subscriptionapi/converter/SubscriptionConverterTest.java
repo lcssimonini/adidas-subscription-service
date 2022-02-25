@@ -38,7 +38,7 @@ class SubscriptionConverterTest {
     assertEquals(subscriptionRequest.getGender().name(), subscription.getGender());
     assertEquals(subscriptionRequest.getEmail(), subscription.getEmail());
     assertEquals(subscriptionRequest.getDateOfBirth(), subscription.getDateOfBirth());
-    assertEquals(subscriptionRequest.isConsentSubscribe(), subscription.isConsentSubscribe());
+    assertEquals(subscriptionRequest.getConsentSubscribe(), subscription.isConsentSubscribe());
     assertEquals(subscriptionRequest.getNewsletterId(), subscription.getNewsletterId());
   }
 

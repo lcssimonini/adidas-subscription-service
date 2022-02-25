@@ -12,7 +12,7 @@ public class SubscriptionConverter {
     return Subscription.builder()
         .email(request.getEmail())
         .firstName(request.getFirstName())
-        .consentSubscribe(request.isConsentSubscribe())
+        .consentSubscribe(request.getConsentSubscribe())
         .dateOfBirth(request.getDateOfBirth())
         .gender(request.getGender().name())
         .newsletterId(request.getNewsletterId())

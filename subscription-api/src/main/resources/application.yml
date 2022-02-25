@@ -12,3 +12,4 @@ subscription:
 email:
   send-queue: send-email-queue
   feedback-queue: feedback-email-queue
+  dlq: email-dlq
