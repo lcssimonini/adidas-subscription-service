@@ -4,35 +4,35 @@ services:
   public-service:
     image: public-service:0.0.1-SNAPSHOT
     container_name: public-service
-    networks:
-      srm:
-        ipv4_address: 172.32.0.101
-    expose:
-      - 8080
-
-  subscription-api:
-    image: subscription-api:0.0.1-SNAPSHOT
-    container_name: subscription-api
-    networks:
-      srm:
-        ipv4_address: 172.32.0.103
-    expose:
-      - 8081
+    ports:
+      - 8080:8080
+    depends_on:
+      - "subscription-api"
 
   email-service:
     image: email-service:0.0.1-SNAPSHOT
     container_name: email-service
-    networks:
-      srm:
-        ipv4_address: 172.32.0.102
+    depends_on:
+      - "rabbitmq"
 
+  subscription-api:
+    image: subscription-api:0.0.1-SNAPSHOT
+    container_name: subscription-api
+    depends_on:
+      - "mongodb"
+      - "rabbitmq"
 
-networks:
-  srm:
-    driver: bridge
-    driver_opts:
-        com.docker.network.enable_ipv4: "true"
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.32.0.0/16
+  mongodb:
+    image: mongo:5.0
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo:/data/db
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq
+    ports:
+      - 5672:5672
+      - 15672:15672
+

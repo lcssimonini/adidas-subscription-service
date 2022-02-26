@@ -1,0 +1,3 @@
+integrations:
+  subscriptions-api:
+    url: http://subscription-api:8081
