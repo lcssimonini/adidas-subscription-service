@@ -2,6 +2,8 @@
 
 Api to handle customers newsletter subscriptions
 
+![Subscriptions API Diagram](subscriptions-api-diagram.png)
+
 ### Sonarcloud reports
 
 * [subscriptions-api](https://sonarcloud.io/project/overview?id=lcssimonini_subscription-api) : Subscriptions API.
