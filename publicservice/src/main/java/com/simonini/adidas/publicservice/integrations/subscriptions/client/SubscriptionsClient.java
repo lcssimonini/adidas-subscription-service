@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @FeignClient(url = "${integrations.subscriptions-api.url}/subscriptions", name = "subscription-api")
 public interface SubscriptionsClient {
 
-  @PostMapping(produces = APPLICATION_JSON_VALUE, consumes = APPLICATION_JSON_VALUE)
+  @PostMapping(produces = APPLICATION_JSON_VALUE)
   SubscriptionResponse create(@RequestBody SubscriptionRequest request);
 
-  @GetMapping(value = "/{id}", consumes = APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/{id}", produces = APPLICATION_JSON_VALUE)
   SubscriptionResponse findById(@PathVariable(value = "id") final String id);
 
   @DeleteMapping(path = "/{id}")
   void cancel(@PathVariable(value = "id") final String id);
 
-  @GetMapping(consumes = APPLICATION_JSON_VALUE)
+  @GetMapping(produces = APPLICATION_JSON_VALUE)
   Page<SubscriptionResponse> findAll(Pageable pageable);
 }

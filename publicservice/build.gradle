@@ -6,6 +6,7 @@ plugins {
 	id 'com.diffplug.spotless' version '5.12.5'
 	id 'org.sonarqube' version '3.2.0'
 	id 'com.palantir.docker' version '0.32.0'
+	id 'com.avast.gradle.docker-compose' version '0.13.3'
 }
 
 group = 'com.simonini.adidas'
@@ -77,6 +78,8 @@ test {
 	useJUnitPlatform()
 }
 
+dockerCompose.isRequiredBy(test)
+
 jacocoTestReport {
 	reports {
 		xml.enabled true
@@ -103,6 +106,7 @@ sonarqube {
 				"**/com/simonini/adidas/publicservice/validator/**",
 				"**/com/simonini/adidas/publicservice/util/**",
 				"**/com/simonini/adidas/publicservice/integrations/subscriptions/resource/dto/**",
+				"**/com/simonini/adidas/publicservice/integrations/subscriptions/client/**",
 				"**/com/simonini/adidas/publicservice/PublicServiceApplication.java"
 		]
 	}

@@ -1,0 +1,237 @@
+#************************************ create subscription **********************************************************************
+- request:
+    method: POST
+    url: /subscriptions
+    post: >
+      {
+        "email" : "email@email.com",
+        "firstName" : "name",
+        "gender" : "MALE",
+        "dateOfBirth" : "10/13/2000",
+        "consentSubscribe" : true,
+        "newsletterId" : "newsletterId1"
+      }
+
+  response:
+    status: 201
+    headers:
+      content-type: application/json
+    body: >
+      {
+        "id": "subscriptionId",
+        "email" : "email@email.com",
+        "firstName" : "name",
+        "gender" : "MALE",
+        "dateOfBirth" : "10/13/2000",
+        "consentSubscribe" : true,
+        "canceled" : false,
+        "newsletterId" : "newsletterId1",
+        "emailSent" : false
+      }
+
+#************************************ get subscription details **********************************************************************
+- request:
+    method: GET
+    url: /subscriptions/subscriptionId
+
+
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    body: >
+      {
+        "id": "subscriptionId",
+        "email" : "email@email.com",
+        "firstName" : "name",
+        "gender" : "MALE",
+        "dateOfBirth" : "10/13/2000",
+        "consentSubscribe" : true,
+        "canceled" : false,
+        "newsletterId" : "newsletterId1",
+        "emailSent" : false
+      }
+
+#************************************ get subscription details **********************************************************************
+- request:
+    method: DELETE
+    url: /subscriptions/subscriptionId
+
+
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+
+#************************************ get subscription page **********************************************************************
+- request:
+    method: GET
+    url: /subscriptions
+
+
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    body: >
+      {
+        "content": [
+          {
+            "id": "621436167be28b1e7c59b7d1",
+            "email": "string",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": true
+          },
+          {
+            "id": "621437e6c5cfef56d83ea41c",
+            "email": "string",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6214385fd3d6887718713d86",
+            "email": "string@strinc.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6214d7000016e3131dde3c59",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6214d7440016e3131dde3c5a",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6214d83aa29154284d19ec0c",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": true
+          },
+          {
+            "id": "6215173beb2ae626dd132007",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "621517904f1ffc3b141c4a11",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "621518a60ff8a22fc463aa5c",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215648fab179a34260263cb",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215668e123eee78e464bde7",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215669c123eee78e464bde8",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215669d123eee78e464bde9",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215669d123eee78e464bdea",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215669e123eee78e464bdeb",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215669e123eee78e464bdec",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "6215669f123eee78e464bded",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "62156799123eee78e464bdee",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "621567f5123eee78e464bdef",
+            "email": "email@email.com",
+            "firstName": "string",
+            "emailSent": false,
+            "canceled": false
+          },
+          {
+            "id": "62167b98978b0168c31cf23f",
+            "email": "string@string.com",
+            "firstName": "primeiro nome",
+            "emailSent": false,
+            "canceled": false
+          }
+        ],
+        "number": 0,
+        "size": 20,
+        "totalElements": 20,
+        "first": true,
+        "last": true,
+        "numberOfElements": 20,
+        "totalPages": 1,
+        "hasContent": true,
+        "pageable": {
+          "sort": [],
+          "pageNumber": 0,
+          "pageSize": 20,
+          "offset": 0,
+          "paged": true,
+          "unpaged": false
+        },
+        "empty": false
+      }

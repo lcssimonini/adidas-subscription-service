@@ -32,4 +32,3 @@ public class SendEmailQueueConfig {
     return new Queue(sendEmailQueue, false);
   }
 }
-

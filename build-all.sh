@@ -6,5 +6,5 @@ cd emailservice
 cd ../subscription-api
 ./gradlew clean build docker
 
-cd ../public-service
+cd ../publicservice
 ./gradlew clean build docker
