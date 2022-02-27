@@ -6,9 +6,15 @@ Api to handle customers newsletter subscriptions
 
 ### Sonarcloud reports
 
-* [subscriptions-api](https://sonarcloud.io/project/overview?id=lcssimonini_subscription-api) : Subscriptions API.
-* [public-service](https://sonarcloud.io/project/overview?id=lcssimonini_public-service) : Public service.
-* [email-service](https://sonarcloud.io/project/overview?id=lcssimonini_email-service) : Email service.
+* [subscriptions-api](https://sonarcloud.io/project/overview?id=lcssimonini_subscription-api)
+* [public-service](https://sonarcloud.io/project/overview?id=lcssimonini_public-service)
+* [email-service](https://sonarcloud.io/project/overview?id=lcssimonini_email-service)
+
+### Necessary tools to run the project
+
+- Java SDK 11+
+- Docker
+- Docker compose
 
 ### Running Locally
 
@@ -18,11 +24,11 @@ Builds all the applications, creates the container images and runs the docker-co
 
 ### Docker Environment
 
-* [API Swagger](http://localhost:8080/swagger-ui.html) : API documentation.
+* [API Swagger](http://localhost:8080/swagger-ui.html)
 
 ### RabbitMQ management console:
 
-* [Rabbit management](http://localhost:15672/) : RabbitMQ.
+* [Rabbit management](http://localhost:15672/)
 
 user: guest
 password: guest
